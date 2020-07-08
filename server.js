@@ -3,6 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+//import router
+const itemsRouter = require("./routes/api/items");
+
 //define the API
 const app = express();
 
@@ -23,6 +26,9 @@ async function connectToDB() {
 
 connectToDB();
 
+//use ItemsRouter
+app.use("/api/items", itemsRouter);
+
 const port = process.env.PORT || 5000;
 
-app.listen(() => console.log(`Server started on port ${port}`));
+app.listen(port, () => console.log(`Server listening on port ${port}`));
