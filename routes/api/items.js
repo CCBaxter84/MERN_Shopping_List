@@ -14,7 +14,19 @@ router.get("/", async (req, res) => {
     } catch(err) {
         console.log(err);
     }
-})
+});
+
+//post a new item to the database
+router.post("/", async (req, res) => {
+    const newItem = new Item({ name: req.body.name });
+    try {
+        const item = await newItem.save();
+        res.json(item);
+    } catch(err) {
+        console.log(err);
+    }
+});
 
 //export router
 module.exports = router;
+
