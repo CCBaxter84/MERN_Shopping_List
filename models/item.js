@@ -13,3 +13,6 @@ const ItemSchema = new Schema({
         default: Date.now
     }
 });
+
+//export ItemSchema as Item so that other files can use it
+module.exports = Item = mongoose.model("item", ItemSchema);
