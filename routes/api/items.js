@@ -10,7 +10,7 @@ const Item = require("../../models/item");
 router.get("/", async (req, res) => {
     try {
         const items = await Item.find().sort({ date: -1 });
-        res.json(items);
+        res.status(200).json(items);
     } catch(err) {
         res.status(500);
         console.log(err);
