@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 
 function AppNavBar() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [ isOpen, setIsOpen ] = useState(false);
     function toggle() {
         setIsOpen(!isOpen);
     }
