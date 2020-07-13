@@ -12,9 +12,11 @@ import {
 
 function AppNavBar() {
     const [ isOpen, setIsOpen ] = useState(false);
+
     function toggle() {
         setIsOpen(!isOpen);
     }
+    
     return (
         <div>
             <Navbar color="dark" dark expand="sm" className="mb-5">

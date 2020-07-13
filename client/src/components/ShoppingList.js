@@ -35,7 +35,8 @@ function ShoppingList() {
                                     style={{marginRight: "0.5rem"}}
                                     color="danger"
                                     size="sm"
-                                    onClick={() => setItems(prev => prev.filter(item => item.id !== id))}>&times;</Button>
+                                    onClick={() => setItems(prev => prev.filter(item => item.id !== id))}>&times;
+                                </Button>
                                 {name}
                             </ListGroupItem>
                         </CSSTransition>
