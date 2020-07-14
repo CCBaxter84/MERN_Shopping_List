@@ -1,13 +1,7 @@
 import React, { useState, useContext } from "react";
 import { 
-    Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    Form,
-    FormGroup, 
-    Label,
-    Input
+    Button, Modal, ModalHeader, ModalBody,
+    Form, FormGroup, Label, Input
 } from "reactstrap";
 import { ItemsContext } from "./ItemsContext";
 
@@ -35,8 +29,8 @@ function ItemModal() {
             <Button
                 color="dark"
                 style={{marginBottom: "2rem"}}
-                onClick={toggle}>
-                Add Item
+                onClick={toggle}
+            >Add Item
             </Button>
             <Modal
                 isOpen={modal}
