@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
-const { Provider, Consumer } = React.createContext();
+const ItemsContext = React.createContext();
 
-function StateContextProvider(props) {
+function ItemsContextProvider(props) {
     const [ isOpen, setIsOpen ] = useState(false);
     const [ items, setItems ] = useState([
         {id: uuid(), name: "Milk"},
@@ -15,18 +15,15 @@ function StateContextProvider(props) {
         setIsOpen(!isOpen);
     }
 
-    function addItem() {
-        const newItem = prompt("Enter item...");
-        if (newItem) {
-            setItems(prev => [...prev, {id: uuid(), name: newItem}]);
-        }
+    function addItem(newItem) {
+        setItems(prev => [...prev, {id: uuid(), name: newItem}]);
     }
     
     return (
-        <Provider value={{isOpen, toggle, items, addItem, setItems}}>
+        <ItemsContext.Provider value={{isOpen, toggle, items, addItem, setItems}}>
             {props.children}
-        </Provider>
+        </ItemsContext.Provider>
     )
 }
 
-export { StateContextProvider, Consumer as StateContextConsumer }
+export {ItemsContextProvider, ItemsContext};
