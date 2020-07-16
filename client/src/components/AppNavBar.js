@@ -12,7 +12,9 @@ import {
 import { ItemsContext } from "./ItemsContext";
 
 function AppNavBar() {
+    //toggle and isOpen work in partnership with each other to determine whether to display the whole Navbar
     const { toggle, isOpen } = useContext(ItemsContext);
+
     return (
         <Navbar color="dark" dark expand="sm" className="mb-5"> 
             <Container>
