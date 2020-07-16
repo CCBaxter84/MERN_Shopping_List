@@ -1,14 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { 
     Button, Modal, ModalHeader, ModalBody,
-    Form, FormGroup, Label, Input
-} from "reactstrap";
-import { ItemsContext } from "./ItemsContext";
+    Form, FormGroup, Label, Input } from "reactstrap";
 
 function ItemModal() {
     const [ name, setName ] = useState("");
     const [ modal, setModal ] = useState(false);
-    const { addItem } = useContext(ItemsContext)
 
     function toggle() {
         setModal(prev => !prev);
@@ -20,8 +17,25 @@ function ItemModal() {
 
     function onSubmit(e) {
         e.preventDefault();
-        addItem(name);
+        postUser();
         toggle();
+    }
+
+    function postUser() {
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({ name: name }),
+            responseType: "json"
+        }
+        if (name) {
+            fetch("api/items", options)
+            .then(res => console.log(`${res.status} Added ${name}`))
+            .catch(error => console.log(error));
+        }
     }
 
     return (
