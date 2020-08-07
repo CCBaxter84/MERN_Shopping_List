@@ -19,7 +19,7 @@ async function connectToDB() {
     try {
         mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log(await "Mongoose DB Connected...");
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 }

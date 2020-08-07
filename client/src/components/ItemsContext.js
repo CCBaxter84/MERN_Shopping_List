@@ -10,8 +10,8 @@ function ItemsContextProvider({children}) {
     //Perform a new get request from the MongoDB whenever there is a change - a la component did update - and update the global state of items with the latest source of record for items in the MongoDB
     useEffect(() => {
         fetch("api/items")
-            .then(res => res.json()
-            .then(data => setItems(data)))
+            .then(res => res.json())
+            .then(data => setItems(data))
             .catch(error => console.log(error));
     });
 
@@ -26,8 +26,8 @@ function ItemsContextProvider({children}) {
         };
         if (idToDelete) {
             fetch(`/api/items/${idToDelete}`, options)
-            .then(res => console.log(res.status + " deleting"))
-            .catch(error => console.log(error));
+                .then(res => console.log(res.status + " deleting"))
+                .catch(error => console.log(error));
         }
     }, [idToDelete])
 

@@ -31,10 +31,10 @@ function ItemModal() {
             body: JSON.stringify({ name: name }),
             responseType: "json"
         }
-        if (name) {
+        if(name) {
             fetch("api/items", options)
-            .then(res => console.log(`${res.status} Added ${name}`))
-            .catch(error => console.log(error));
+                .then(res => console.log(`${res.status} Added ${name}`))
+                .catch(error => console.log(error));
         }
     }
 
