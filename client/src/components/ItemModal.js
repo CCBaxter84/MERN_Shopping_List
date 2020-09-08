@@ -41,7 +41,7 @@ function ItemModal() {
     return (
         <div>
             <Button
-                color="dark"
+                color="info"
                 style={{marginBottom: "2rem"}}
                 onClick={toggle}
             >Add Item

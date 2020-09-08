@@ -13,13 +13,13 @@ function ShoppingList() {
         setItems(prev => prev.filter(item => item.id !== id))
     }
 
-    return ( 
+    return (
         <Container>
             <ListGroup>
                 <TransitionGroup className="shopping-list">
                     {items.map(({ _id, name }) => (
                         <CSSTransition key={_id} timeout={500} classNames="fade">
-                            <ListGroupItem>
+                            <ListGroupItem color="light">
                                 <Button
                                     style={{marginRight: "0.5rem"}}
                                     color="danger"

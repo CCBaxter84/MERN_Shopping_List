@@ -16,9 +16,9 @@ function AppNavBar() {
     const { toggle, isOpen } = useContext(ItemsContext);
 
     return (
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar color="secondary" dark expand="sm" className="mb-5">
             <Container>
-                <NavbarBrand href="/">ShoppingList</NavbarBrand>
+                <NavbarBrand href="/">Shopping List</NavbarBrand>
                 <NavbarToggler onClick={toggle}></NavbarToggler>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
