@@ -2,6 +2,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require('path');
+require('dotenv').config();
 
 //import router
 const itemsRouter = require("./routes/api/items");
@@ -13,7 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //Configure and connect to Mongo Database
-const db = require("./config/keys").mongoURI;
+const db = process.env.mongoURI;
 
 async function connectToDB() {
     try {
@@ -26,8 +28,16 @@ async function connectToDB() {
 
 connectToDB();
 
-//use ItemsRouter
+// Use ItemsRouter
 app.use("/api/items", itemsRouter);
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 const port = process.env.PORT || 5000;
 
